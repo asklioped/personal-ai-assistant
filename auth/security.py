@@ -1,10 +1,11 @@
+import os
 from datetime import datetime, timedelta
 import bcrypt
 import jwt
 from fastapi import Request, HTTPException, status
 
 # Налаштування безпеки, в майбутьному їх краще винести в .env
-SECRET_KEY = "SUPER_SECRET_KEY_JAKYI_NIHTO_NE_ZNAJE"
+SECRET_KEY = os.getenv("SECRET_KEY", "тимчасовий_дефолтний_ключ")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_DAYS = 7
 COOKIE_NAME = "access_token"
