@@ -51,21 +51,6 @@ def init_db():
     """)
 
 
-    # Створення першого користувача для "Закритого клуба"
-    cursor.execute("SELECT COUNT(*) FROM users;")
-    if cursor.fetchone()[0] == 0:
-        # Якщо користувачів нема, створюєм дфолтного
-        admin_username = "admin"
-        admin_password = "tua_49RD"     # <------ пароль який потім змінемо
-
-        hashed = hash_password(admin_password)
-        cursor.execute(
-            "INSERT INTO users (username, hashed_password) VALUES (?, ?);",
-            (admin_username, hashed)
-        )
-        print(f"Створено першого користувача! Login: {admin_username}, Password: {admin_password}")
-
-
     conn.commit()
     conn.close()
     print("Базу даних успішно ініціалізовано!")
