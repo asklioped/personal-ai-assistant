@@ -13,7 +13,7 @@ from services import ollama_client
 from database import queries
 from database.connection import init_db, get_db_connection
 from auth.security import (
-    verifi_password,  # Виправлено чисту назву функції безпеки
+    verify_password,  # Виправлено чисту назву функції безпеки
     create_access_token,
     get_current_user_id,
     COOKIE_NAME,
@@ -66,7 +66,7 @@ def login(response: Response, form_data: OAuth2PasswordRequestForm = Depends()):
         )
         
     # КРОК 2: Перевіряємо пароль
-    if not verifi_password(form_data.password, user["hashed_password"]):
+    if not verify_password(form_data.password, user["hashed_password"]):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Неправильний логін або пароль",
