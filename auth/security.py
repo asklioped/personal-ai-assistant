@@ -14,7 +14,7 @@ def hash_password(password: str) -> str:
     salt = bcrypt.gensalt()
     return bcrypt.hashpw(password.encode('utf-8'), salt).decode('utf-8')
 
-def verifity_password(plain_password: str, hashed_password: str) -> bool:
+def verifi_password(plain_password: str, hashed_password: str) -> bool:
     """Перевіряє, чи збігається введений пароль із хешем з бази."""
     return bcrypt.checkpw(plain_password.encode('utf-8'), hashed_password.encode('utf-8'))
 

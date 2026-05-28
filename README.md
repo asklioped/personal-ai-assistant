@@ -19,7 +19,10 @@ source venv/bin/activate
 ```bash
 pip install -r requirement.txt
 ```
-
+Додаємо користувача:
+```bash
+python3 add_user.py
+```
 Запуск, поки що:
 ```python
 unicorn main:app --reload

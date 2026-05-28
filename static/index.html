@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Помічник — Чат</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-white flex h-screen overflow-hidden">
+
+    <div class="w-80 bg-slate-800 border-r border-slate-700 flex flex-col justify-between">
+        <div class="p-4 flex flex-col h-full overflow-hidden">
+            <button id="newChatBtn" class="w-full bg-indigo-600 hover:bg-indigo-500 font-medium py-2 px-4 rounded-lg mb-4 transition-colors cursor-pointer text-center">
+                + Новий чат
+            </button>
+            
+            <div id="chatsList" class="flex-1 overflow-y-auto space-y-2 pr-1"></div>
+        </div>
+        
+        <div class="p-4 border-t border-slate-700">
+            <button id="logoutBtn" class="w-full bg-slate-700 hover:bg-red-600 py-2 rounded-lg transition-colors cursor-pointer text-sm font-medium">
+                Вийти з акаунту
+            </button>
+        </div>
+    </div>
+
+    <div class="flex-1 flex flex-col bg-slate-950">
+        <div class="p-4 bg-slate-900 border-b border-slate-800 flex justify-between items-center">
+            <h1 id="currentChatTitle" class="text-lg font-semibold text-slate-200">Оберіть або створіть чат</h1>
+            <button id="deleteChatBtn" class="text-slate-500 hover:text-red-400 p-2 hidden cursor-pointer">🗑 Видалити чат</button>
+        </div>
+
+        <div id="messagesContainer" class="flex-1 overflow-y-auto p-6 space-y-4">
+            <div class="text-center text-slate-500 mt-20">Почніть розмову, відправивши перше повідомлення.</div>
+        </div>
+
+        <div class="p-4 bg-slate-900 border-t border-slate-800">
+            <form id="messageForm" class="max-w-4xl mx-auto flex gap-4">
+                <input type="text" id="messageInput" placeholder="Запитайте щось у AI..." autocomplete="off" disabled
+                       class="flex-1 px-4 py-3 bg-slate-800 border border-slate-700 rounded-xl focus:outline-none focus:border-indigo-500 text-white disabled:opacity-50">
+                <button type="submit" id="sendBtn" disabled
+                        class="bg-indigo-600 hover:bg-indigo-500 disabled:bg-slate-700 text-white font-medium px-6 py-3 rounded-xl transition-colors cursor-pointer disabled:cursor-not-allowed">
+                    Надіслати
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/js/chat.js"></script>
+</body>
+</html>
