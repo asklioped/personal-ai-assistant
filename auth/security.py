@@ -3,6 +3,10 @@ from datetime import datetime, timedelta
 import bcrypt
 import jwt
 from fastapi import Request, HTTPException, status
+from dotenv import load_dotenv
+
+# Завантажуємо змінні з файлу .env в пам'ять процесу
+load_dotenv()
 
 # Налаштування безпеки, в майбутьному їх краще винести в .env
 SECRET_KEY = os.getenv("SECRET_KEY", "тимчасовий_дефолтний_ключ")
