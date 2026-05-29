@@ -13,19 +13,19 @@ from services import ollama_client
 from database import queries
 from database.connection import init_db, get_db_connection
 from auth.security import (
-    verify_password,  # Виправлено чисту назву функції безпеки
+    verify_password,
     create_access_token,
     get_current_user_id,
     COOKIE_NAME,
     ACCESS_TOKEN_EXPIRE_DAYS
 )
 
-# Вказуємо константи IP адреси та порту, на якому працює програма
-HOST = "127.0.0.1"
-PORT = 8080
+# Вказуємо константи IP адреси та порту, що знаходяться у .env
+HOST = os.getenv("HOST", "127.0.0.1")
+PORT = int(os.getenv("PORT", 8080))
 
 # Перевіряємо, в якому режимі запускаємось. Якщо не вказано — вважаємо, що це продакшн (захищений)
-ENV = os.getenv("ENV", "production")
+ENV = os.getenv("ENV", "development")
 
 # Створюємо додаток ОДИН раз із правильними налаштуваннями безпеки
 app = FastAPI(

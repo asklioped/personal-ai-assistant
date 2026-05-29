@@ -20,14 +20,20 @@ pip install -r requirement.txt
 ```
 Створюємо файл .env з такими текстом та вигадуємо складний ключ:
 ```txt
+# Вкажіть складний великий ключ
 SECRET_KEY=
-ENV=production
+# Вкажіть development, якщо середовище розробки або production - якщо це продакшин
+ENV=development
+# Якщо development - 127.0.0.1, чякщо production - 0.0.0.0
+HOST = 
+# Порт ставим 8080, якщо необхідно інший, вказуєм відповідний
+PORT =
 ```
 Додаємо користувача:
 ```bash
 python3 add_user.py
 ```
-Запуск, поки що:
-```python
-unicorn main:app --reload
+Запуск:
+```bash
+python2 main.py
 ```
