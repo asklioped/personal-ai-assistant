@@ -1,11 +1,12 @@
-import httpx
-import json
+import httpx, json, os
 from database.queries import get_chat_history
 
-# Адреса твоєї локальної Ollama
-OLLAMA_URL = "http://192.168.217.70:11434/api/chat"
-# Назва моделі, яку ти завантажив в Ollama (наприклад: llama3, mistral, qwen2.5 і т.д.)
-MODEL_NAME = "llama3" 
+# Адреса твоєї локальної Ollama, винесена в .env
+OLLAMA_URL = os.getenv("OLLAMA_URL")
+#OLLAMA_URL = "http://192.168.217.70:11434/api/chat"
+# Назва моделі, яку ти завантажив в Ollama (наприклад: llama3, mistral, qwen2.5 і т.д.). Винесена в .env
+MODEL_NAME = os.getenv("MODEL_NAME")
+#MODEL_NAME = "llama3" 
 
 SYSTEM_PROMPT = {
     "role": "system",
